@@ -41,7 +41,8 @@ namespace Esoft_Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form formRealEstate = new Объекты_недвижимости();
+            formRealEstate.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)

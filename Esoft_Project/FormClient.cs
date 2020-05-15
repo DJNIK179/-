@@ -127,5 +127,10 @@ namespace Esoft_Project
                 textBoxEmail.Text = " ";
             }
         }
+
+        private void textBoxPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

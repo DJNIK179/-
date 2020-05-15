@@ -16,8 +16,26 @@
           <Property Name="Phone" Type="nvarchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Объекты недвижимостиSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_City" Type="nvarchar(max)" />
+          <Property Name="Address_Street" Type="nvarchar(max)" />
+          <Property Name="Address_House" Type="nvarchar(max)" />
+          <Property Name="Address_Number" Type="nvarchar(max)" />
+          <Property Name="Coordinate_latitude" Type="float" />
+          <Property Name="Coordinate_longitude" Type="float" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="TotalArea" Type="float" />
+          <Property Name="TotalFloors" Type="int" />
+          <Property Name="Rooms" Type="int" />
+          <Property Name="Floor" Type="int" />
+        </EntityType>
         <EntityContainer Name="Хранилище УПModelContainer">
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Объекты недвижимостиSet" EntityType="Self.Объекты недвижимостиSet" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -35,8 +53,26 @@
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Объекты_недвижимостиSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address_Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address_House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address_Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinate_latitude" Type="Double" />
+          <Property Name="Coordinate_longitude" Type="Double" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="TotalArea" Type="Double" />
+          <Property Name="TotalFloors" Type="Int32" />
+          <Property Name="Rooms" Type="Int32" />
+          <Property Name="Floor" Type="Int32" />
+        </EntityType>
         <EntityContainer Name="УПEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" />
+          <EntitySet Name="Объекты_недвижимостиSet" EntityType="Self.Объекты_недвижимостиSet" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -53,6 +89,24 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Объекты_недвижимостиSet">
+            <EntityTypeMapping TypeName="УПModel.Объекты_недвижимостиSet">
+              <MappingFragment StoreEntitySet="Объекты недвижимостиSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+                <ScalarProperty Name="Address_Street" ColumnName="Address_Street" />
+                <ScalarProperty Name="Address_House" ColumnName="Address_House" />
+                <ScalarProperty Name="Address_Number" ColumnName="Address_Number" />
+                <ScalarProperty Name="Coordinate_latitude" ColumnName="Coordinate_latitude" />
+                <ScalarProperty Name="Coordinate_longitude" ColumnName="Coordinate_longitude" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
+                <ScalarProperty Name="TotalFloors" ColumnName="TotalFloors" />
+                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

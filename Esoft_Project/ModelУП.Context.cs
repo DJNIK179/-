@@ -26,5 +26,6 @@ namespace Esoft_Project
         }
     
         public virtual DbSet<КлиентыSet> КлиентыSet { get; set; }
+        public virtual DbSet<Объекты_недвижимостиSet> Объекты_недвижимостиSet { get; set; }
     }
 }
