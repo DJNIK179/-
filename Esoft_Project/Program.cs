@@ -8,6 +8,8 @@ namespace Esoft_Project
 {
     static class Program
     {
+        //создание статического экземплера класса модели ADO.EDM
+        public static УПEntities wftDb = new УПEntities();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +18,7 @@ namespace Esoft_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Menu());
         }
     }
 }
