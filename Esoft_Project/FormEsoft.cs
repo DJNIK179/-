@@ -36,7 +36,8 @@ namespace Esoft_Project
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            Form formRieltor = new FormRieltor();
+            formRieltor.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

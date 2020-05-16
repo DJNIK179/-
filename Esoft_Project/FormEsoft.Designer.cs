@@ -54,6 +54,7 @@
             // 
             this.buttonOpenClients.AutoEllipsis = true;
             this.buttonOpenClients.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenClients.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenClients.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.buttonOpenClients.Location = new System.Drawing.Point(7, 148);
@@ -69,6 +70,7 @@
             // buttonOpenRealEstates
             // 
             this.buttonOpenRealEstates.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenRealEstates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenRealEstates.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenRealEstates.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.buttonOpenRealEstates.Location = new System.Drawing.Point(7, 304);
@@ -84,6 +86,7 @@
             // buttonOpenDeals
             // 
             this.buttonOpenDeals.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenDeals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenDeals.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenDeals.ForeColor = System.Drawing.Color.Cornsilk;
             this.buttonOpenDeals.Location = new System.Drawing.Point(7, 538);
@@ -99,6 +102,7 @@
             // buttonOpenSupplies
             // 
             this.buttonOpenSupplies.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenSupplies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenSupplies.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenSupplies.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOpenSupplies.Location = new System.Drawing.Point(7, 460);
@@ -114,6 +118,7 @@
             // buttonOpenDemands
             // 
             this.buttonOpenDemands.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenDemands.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenDemands.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenDemands.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.buttonOpenDemands.Location = new System.Drawing.Point(7, 382);
@@ -129,6 +134,7 @@
             // buttonOpenAgents
             // 
             this.buttonOpenAgents.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonOpenAgents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenAgents.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonOpenAgents.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.buttonOpenAgents.Location = new System.Drawing.Point(7, 226);

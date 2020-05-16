@@ -69,6 +69,7 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(116, 23);
             this.textBoxFirstName.TabIndex = 0;
+            this.textBoxFirstName.TextChanged += new System.EventHandler(this.textBoxFirstName_TextChanged);
             // 
             // labelFirstName
             // 
@@ -185,6 +186,7 @@
             // buttonEdit
             // 
             this.buttonEdit.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonEdit.Location = new System.Drawing.Point(442, 307);
             this.buttonEdit.Name = "buttonEdit";
@@ -197,6 +199,7 @@
             // buttonDel
             // 
             this.buttonDel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonDel.Location = new System.Drawing.Point(555, 307);
             this.buttonDel.Name = "buttonDel";
@@ -209,6 +212,7 @@
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonAdd.Location = new System.Drawing.Point(338, 307);
             this.buttonAdd.Name = "buttonAdd";

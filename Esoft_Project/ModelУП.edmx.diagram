@@ -4,9 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="858493aa23714c4eba80eb0b6a684e2d" Name="Diagram1">
+      <Diagram DiagramId="60cceed5c15c43cb831c695e987f3dfe" Name="Diagram1">
         <EntityTypeShape EntityType="УПModel.КлиентыSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="УПModel.Объекты_недвижимостиSet" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.РиэлторSet" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

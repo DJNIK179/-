@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormEsoft.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormEsoft.Designer.cs">
+      <DependentUpon>FormEsoft.cs</DependentUpon>
     </Compile>
     <Compile Include="FormClient.cs">
       <SubType>Form</SubType>
@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="FormRealEstate.Designer.cs">
       <DependentUpon>FormRealEstate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRieltor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRieltor.Designer.cs">
+      <DependentUpon>FormRieltor.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelУП.Context.cs">
       <AutoGen>True</AutoGen>
@@ -96,14 +102,20 @@
     <Compile Include="Объекты_недвижимостиSet.cs">
       <DependentUpon>ModelУП.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="РиэлторSet.cs">
+      <DependentUpon>ModelУП.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormEsoft.resx">
+      <DependentUpon>FormEsoft.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRealEstate.resx">
       <DependentUpon>FormRealEstate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRieltor.resx">
+      <DependentUpon>FormRieltor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

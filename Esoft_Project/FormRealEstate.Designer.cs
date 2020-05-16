@@ -175,13 +175,14 @@
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonAdd.Location = new System.Drawing.Point(532, 416);
+            this.buttonAdd.Location = new System.Drawing.Point(511, 415);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(15);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonAdd.Size = new System.Drawing.Size(104, 42);
+            this.buttonAdd.Size = new System.Drawing.Size(104, 43);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "Создать";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -203,13 +204,14 @@
             // buttonEdit
             // 
             this.buttonEdit.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEdit.Location = new System.Drawing.Point(666, 416);
+            this.buttonEdit.Location = new System.Drawing.Point(645, 415);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(15);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonEdit.Size = new System.Drawing.Size(93, 42);
+            this.buttonEdit.Size = new System.Drawing.Size(114, 42);
             this.buttonEdit.TabIndex = 5;
             this.buttonEdit.Text = "Изменить";
             this.buttonEdit.UseVisualStyleBackColor = false;
@@ -218,13 +220,14 @@
             // buttonDel
             // 
             this.buttonDel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDel.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonDel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDel.Location = new System.Drawing.Point(789, 416);
+            this.buttonDel.Location = new System.Drawing.Point(789, 415);
             this.buttonDel.Margin = new System.Windows.Forms.Padding(15);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonDel.Size = new System.Drawing.Size(98, 42);
+            this.buttonDel.Size = new System.Drawing.Size(98, 43);
             this.buttonDel.TabIndex = 6;
             this.buttonDel.Text = "Удалить";
             this.buttonDel.UseVisualStyleBackColor = false;
@@ -508,26 +511,27 @@
             // columnHeader10
             // 
             this.columnHeader10.Text = "Номер дома";
-            this.columnHeader10.Width = 89;
+            this.columnHeader10.Width = 120;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Номер квартиры";
-            this.columnHeader11.Width = 120;
+            this.columnHeader11.Width = 127;
             // 
             // columnHeader12
             // 
             this.columnHeader12.Text = "Широта";
+            this.columnHeader12.Width = 85;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Долгота";
-            this.columnHeader13.Width = 90;
+            this.columnHeader13.Width = 84;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Площадь";
-            this.columnHeader14.Width = 100;
+            this.columnHeader14.Width = 178;
             // 
             // textBoxTotalFloors
             // 
