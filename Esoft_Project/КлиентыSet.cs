@@ -14,11 +14,23 @@ namespace Esoft_Project
     
     public partial class КлиентыSet
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public КлиентыSet()
+        {
+            this.ПотребностиSet = new HashSet<ПотребностиSet>();
+            this.ПредложенияSet = new HashSet<ПредложенияSet>();
+        }
+    
         public int id { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ПотребностиSet> ПотребностиSet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ПредложенияSet> ПредложенияSet { get; set; }
     }
 }

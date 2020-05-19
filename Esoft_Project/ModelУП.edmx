@@ -33,6 +33,35 @@
           <Property Name="Rooms" Type="int" />
           <Property Name="Floor" Type="int" />
         </EntityType>
+        <EntityType Name="ПотребностиSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAgent" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="MinPrice" Type="bigint" />
+          <Property Name="MaxPrice" Type="bigint" />
+          <Property Name="MinArea" Type="float" />
+          <Property Name="MaxArea" Type="float" />
+          <Property Name="MinRooms" Type="int" />
+          <Property Name="MaxRooms" Type="int" />
+          <Property Name="MinFloor" Type="int" />
+          <Property Name="MaxFloor" Type="int" />
+          <Property Name="MinFloors" Type="int" />
+          <Property Name="MaxFloors" Type="int" />
+        </EntityType>
+        <EntityType Name="ПредложенияSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAgent" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdRealEstate" Type="int" Nullable="false" />
+          <Property Name="Price" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="РиэлторSet">
           <Key>
             <PropertyRef Name="id" />
@@ -43,10 +72,133 @@
           <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DealShare" Type="int" />
         </EntityType>
+        <EntityType Name="СделкиSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSupply" Type="int" Nullable="false" />
+          <Property Name="IdDemand" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ПотребностиSet_КлиентыSet">
+          <End Role="КлиентыSet" Type="Self.КлиентыSet" Multiplicity="1" />
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="КлиентыSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПотребностиSet">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПотребностиSet_РиэлторSet">
+          <End Role="РиэлторSet" Type="Self.РиэлторSet" Multiplicity="1" />
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="РиэлторSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПотребностиSet">
+              <PropertyRef Name="IdAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_КлиентыSet">
+          <End Role="КлиентыSet" Type="Self.КлиентыSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="КлиентыSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_Объекты недвижимостиSet">
+          <End Role="Объекты недвижимостиSet" Type="Self.Объекты недвижимостиSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Объекты недвижимостиSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdRealEstate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_РиэлторSet">
+          <End Role="РиэлторSet" Type="Self.РиэлторSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="РиэлторSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СделкиSet_ПотребностиSet">
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="1" />
+          <End Role="СделкиSet" Type="Self.СделкиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПотребностиSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="СделкиSet">
+              <PropertyRef Name="IdDemand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СделкиSet_ПредложенияSet">
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="1" />
+          <End Role="СделкиSet" Type="Self.СделкиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПредложенияSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="СделкиSet">
+              <PropertyRef Name="IdSupply" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище УПModelContainer">
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Объекты недвижимостиSet" EntityType="Self.Объекты недвижимостиSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПотребностиSet" EntityType="Self.ПотребностиSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ПредложенияSet" EntityType="Self.ПредложенияSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="РиэлторSet" EntityType="Self.РиэлторSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="СделкиSet" EntityType="Self.СделкиSet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ПотребностиSet_КлиентыSet" Association="Self.FK_ПотребностиSet_КлиентыSet">
+            <End Role="КлиентыSet" EntitySet="КлиентыSet" />
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПотребностиSet_РиэлторSet" Association="Self.FK_ПотребностиSet_РиэлторSet">
+            <End Role="РиэлторSet" EntitySet="РиэлторSet" />
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_КлиентыSet" Association="Self.FK_ПредложенияSet_КлиентыSet">
+            <End Role="КлиентыSet" EntitySet="КлиентыSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_Объекты недвижимостиSet" Association="Self.FK_ПредложенияSet_Объекты недвижимостиSet">
+            <End Role="Объекты недвижимостиSet" EntitySet="Объекты недвижимостиSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_РиэлторSet" Association="Self.FK_ПредложенияSet_РиэлторSet">
+            <End Role="РиэлторSet" EntitySet="РиэлторSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СделкиSet_ПотребностиSet" Association="Self.FK_СделкиSet_ПотребностиSet">
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+            <End Role="СделкиSet" EntitySet="СделкиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СделкиSet_ПредложенияSet" Association="Self.FK_СделкиSet_ПредложенияSet">
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+            <End Role="СделкиSet" EntitySet="СделкиSet" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -63,6 +215,8 @@
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ПотребностиSet" Relationship="Self.FK_ПотребностиSet_КлиентыSet" FromRole="КлиентыSet" ToRole="ПотребностиSet" />
+          <NavigationProperty Name="ПредложенияSet" Relationship="Self.FK_ПредложенияSet_КлиентыSet" FromRole="КлиентыSet" ToRole="ПредложенияSet" />
         </EntityType>
         <EntityType Name="Объекты_недвижимостиSet">
           <Key>
@@ -80,6 +234,43 @@
           <Property Name="TotalFloors" Type="Int32" />
           <Property Name="Rooms" Type="Int32" />
           <Property Name="Floor" Type="Int32" />
+          <NavigationProperty Name="ПредложенияSet" Relationship="Self.FK_ПредложенияSet_Объекты_недвижимостиSet" FromRole="Объекты_недвижимостиSet" ToRole="ПредложенияSet" />
+        </EntityType>
+        <EntityType Name="ПотребностиSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAgent" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="MinPrice" Type="Int64" />
+          <Property Name="MaxPrice" Type="Int64" />
+          <Property Name="MinArea" Type="Double" />
+          <Property Name="MaxArea" Type="Double" />
+          <Property Name="MinRooms" Type="Int32" />
+          <Property Name="MaxRooms" Type="Int32" />
+          <Property Name="MinFloor" Type="Int32" />
+          <Property Name="MaxFloor" Type="Int32" />
+          <Property Name="MinFloors" Type="Int32" />
+          <Property Name="MaxFloors" Type="Int32" />
+          <NavigationProperty Name="КлиентыSet" Relationship="Self.FK_ПотребностиSet_КлиентыSet" FromRole="ПотребностиSet" ToRole="КлиентыSet" />
+          <NavigationProperty Name="РиэлторSet" Relationship="Self.FK_ПотребностиSet_РиэлторSet" FromRole="ПотребностиSet" ToRole="РиэлторSet" />
+          <NavigationProperty Name="СделкиSet" Relationship="Self.FK_СделкиSet_ПотребностиSet" FromRole="ПотребностиSet" ToRole="СделкиSet" />
+        </EntityType>
+        <EntityType Name="ПредложенияSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAgent" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdRealEstate" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="КлиентыSet" Relationship="Self.FK_ПредложенияSet_КлиентыSet" FromRole="ПредложенияSet" ToRole="КлиентыSet" />
+          <NavigationProperty Name="Объекты_недвижимостиSet" Relationship="Self.FK_ПредложенияSet_Объекты_недвижимостиSet" FromRole="ПредложенияSet" ToRole="Объекты_недвижимостиSet" />
+          <NavigationProperty Name="РиэлторSet" Relationship="Self.FK_ПредложенияSet_РиэлторSet" FromRole="ПредложенияSet" ToRole="РиэлторSet" />
+          <NavigationProperty Name="СделкиSet" Relationship="Self.FK_СделкиSet_ПредложенияSet" FromRole="ПредложенияSet" ToRole="СделкиSet" />
         </EntityType>
         <EntityType Name="РиэлторSet">
           <Key>
@@ -90,11 +281,138 @@
           <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DealShare" Type="Int32" />
+          <NavigationProperty Name="ПотребностиSet" Relationship="Self.FK_ПотребностиSet_РиэлторSet" FromRole="РиэлторSet" ToRole="ПотребностиSet" />
+          <NavigationProperty Name="ПредложенияSet" Relationship="Self.FK_ПредложенияSet_РиэлторSet" FromRole="РиэлторSet" ToRole="ПредложенияSet" />
         </EntityType>
+        <EntityType Name="СделкиSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSupply" Type="Int32" Nullable="false" />
+          <Property Name="IdDemand" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ПотребностиSet" Relationship="Self.FK_СделкиSet_ПотребностиSet" FromRole="СделкиSet" ToRole="ПотребностиSet" />
+          <NavigationProperty Name="ПредложенияSet" Relationship="Self.FK_СделкиSet_ПредложенияSet" FromRole="СделкиSet" ToRole="ПредложенияSet" />
+        </EntityType>
+        <Association Name="FK_ПотребностиSet_КлиентыSet">
+          <End Role="КлиентыSet" Type="Self.КлиентыSet" Multiplicity="1" />
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="КлиентыSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПотребностиSet">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_КлиентыSet">
+          <End Role="КлиентыSet" Type="Self.КлиентыSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="КлиентыSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_Объекты_недвижимостиSet">
+          <End Role="Объекты_недвижимостиSet" Type="Self.Объекты_недвижимостиSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Объекты_недвижимостиSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdRealEstate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПотребностиSet_РиэлторSet">
+          <End Role="РиэлторSet" Type="Self.РиэлторSet" Multiplicity="1" />
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="РиэлторSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПотребностиSet">
+              <PropertyRef Name="IdAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СделкиSet_ПотребностиSet">
+          <End Role="ПотребностиSet" Type="Self.ПотребностиSet" Multiplicity="1" />
+          <End Role="СделкиSet" Type="Self.СделкиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПотребностиSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="СделкиSet">
+              <PropertyRef Name="IdDemand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ПредложенияSet_РиэлторSet">
+          <End Role="РиэлторSet" Type="Self.РиэлторSet" Multiplicity="1" />
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="РиэлторSet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ПредложенияSet">
+              <PropertyRef Name="IdAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СделкиSet_ПредложенияSet">
+          <End Role="ПредложенияSet" Type="Self.ПредложенияSet" Multiplicity="1" />
+          <End Role="СделкиSet" Type="Self.СделкиSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ПредложенияSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="СделкиSet">
+              <PropertyRef Name="IdSupply" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="УПEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" />
           <EntitySet Name="Объекты_недвижимостиSet" EntityType="Self.Объекты_недвижимостиSet" />
+          <EntitySet Name="ПотребностиSet" EntityType="Self.ПотребностиSet" />
+          <EntitySet Name="ПредложенияSet" EntityType="Self.ПредложенияSet" />
           <EntitySet Name="РиэлторSet" EntityType="Self.РиэлторSet" />
+          <EntitySet Name="СделкиSet" EntityType="Self.СделкиSet" />
+          <AssociationSet Name="FK_ПотребностиSet_КлиентыSet" Association="Self.FK_ПотребностиSet_КлиентыSet">
+            <End Role="КлиентыSet" EntitySet="КлиентыSet" />
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_КлиентыSet" Association="Self.FK_ПредложенияSet_КлиентыSet">
+            <End Role="КлиентыSet" EntitySet="КлиентыSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_Объекты_недвижимостиSet" Association="Self.FK_ПредложенияSet_Объекты_недвижимостиSet">
+            <End Role="Объекты_недвижимостиSet" EntitySet="Объекты_недвижимостиSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПотребностиSet_РиэлторSet" Association="Self.FK_ПотребностиSet_РиэлторSet">
+            <End Role="РиэлторSet" EntitySet="РиэлторSet" />
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СделкиSet_ПотребностиSet" Association="Self.FK_СделкиSet_ПотребностиSet">
+            <End Role="ПотребностиSet" EntitySet="ПотребностиSet" />
+            <End Role="СделкиSet" EntitySet="СделкиSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ПредложенияSet_РиэлторSet" Association="Self.FK_ПредложенияSet_РиэлторSet">
+            <End Role="РиэлторSet" EntitySet="РиэлторSet" />
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СделкиSet_ПредложенияSet" Association="Self.FK_СделкиSet_ПредложенияSet">
+            <End Role="ПредложенияSet" EntitySet="ПредложенияSet" />
+            <End Role="СделкиSet" EntitySet="СделкиSet" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -132,6 +450,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ПотребностиSet">
+            <EntityTypeMapping TypeName="УПModel.ПотребностиSet">
+              <MappingFragment StoreEntitySet="ПотребностиSet">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IdAgent" ColumnName="IdAgent" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="MinArea" ColumnName="MinArea" />
+                <ScalarProperty Name="MaxArea" ColumnName="MaxArea" />
+                <ScalarProperty Name="MinRooms" ColumnName="MinRooms" />
+                <ScalarProperty Name="MaxRooms" ColumnName="MaxRooms" />
+                <ScalarProperty Name="MinFloor" ColumnName="MinFloor" />
+                <ScalarProperty Name="MaxFloor" ColumnName="MaxFloor" />
+                <ScalarProperty Name="MinFloors" ColumnName="MinFloors" />
+                <ScalarProperty Name="MaxFloors" ColumnName="MaxFloors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ПредложенияSet">
+            <EntityTypeMapping TypeName="УПModel.ПредложенияSet">
+              <MappingFragment StoreEntitySet="ПредложенияSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAgent" ColumnName="IdAgent" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdRealEstate" ColumnName="IdRealEstate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="РиэлторSet">
             <EntityTypeMapping TypeName="УПModel.РиэлторSet">
               <MappingFragment StoreEntitySet="РиэлторSet">
@@ -140,6 +489,15 @@
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="DealShare" ColumnName="DealShare" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="СделкиSet">
+            <EntityTypeMapping TypeName="УПModel.СделкиSet">
+              <MappingFragment StoreEntitySet="СделкиSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSupply" ColumnName="IdSupply" />
+                <ScalarProperty Name="IdDemand" ColumnName="IdDemand" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

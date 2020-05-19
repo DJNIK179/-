@@ -4,10 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="60cceed5c15c43cb831c695e987f3dfe" Name="Diagram1">
-        <EntityTypeShape EntityType="УПModel.КлиентыSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="УПModel.Объекты_недвижимостиSet" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="УПModel.РиэлторSet" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="6064ccd297e542b5a45de3757830e5bc" Name="Diagram1">
+        <EntityTypeShape EntityType="УПModel.КлиентыSet" Width="1.5" PointX="1.125" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.Объекты_недвижимостиSet" Width="1.5" PointX="6.625" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.ПотребностиSet" Width="1.5" PointX="3.125" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.ПредложенияSet" Width="1.5" PointX="3.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.РиэлторSet" Width="1.5" PointX="0.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="УПModel.СделкиSet" Width="1.5" PointX="6.875" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="УПModel.FK_ПотребностиSet_КлиентыSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_ПредложенияSet_КлиентыSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_ПредложенияSet_Объекты_недвижимостиSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_ПотребностиSet_РиэлторSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_СделкиSet_ПотребностиSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_ПредложенияSet_РиэлторSet" ManuallyRouted="false" />
+        <AssociationConnector Association="УПModel.FK_СделкиSet_ПредложенияSet" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -155,5 +155,10 @@ namespace Esoft_Project
                 MessageBox.Show("" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void textBoxLastName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

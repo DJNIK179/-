@@ -122,7 +122,7 @@
             this.listViewRealEstateSet_Apartment.Margin = new System.Windows.Forms.Padding(15);
             this.listViewRealEstateSet_Apartment.MultiSelect = false;
             this.listViewRealEstateSet_Apartment.Name = "listViewRealEstateSet_Apartment";
-            this.listViewRealEstateSet_Apartment.Size = new System.Drawing.Size(722, 325);
+            this.listViewRealEstateSet_Apartment.Size = new System.Drawing.Size(722, 373);
             this.listViewRealEstateSet_Apartment.TabIndex = 2;
             this.listViewRealEstateSet_Apartment.UseCompatibleStateImageBehavior = false;
             this.listViewRealEstateSet_Apartment.View = System.Windows.Forms.View.Details;
@@ -431,7 +431,7 @@
             this.listViewRealEstateSet_House.Location = new System.Drawing.Point(165, 24);
             this.listViewRealEstateSet_House.MultiSelect = false;
             this.listViewRealEstateSet_House.Name = "listViewRealEstateSet_House";
-            this.listViewRealEstateSet_House.Size = new System.Drawing.Size(722, 325);
+            this.listViewRealEstateSet_House.Size = new System.Drawing.Size(722, 373);
             this.listViewRealEstateSet_House.TabIndex = 28;
             this.listViewRealEstateSet_House.UseCompatibleStateImageBehavior = false;
             this.listViewRealEstateSet_House.View = System.Windows.Forms.View.Details;

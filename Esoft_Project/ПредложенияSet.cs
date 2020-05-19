@@ -12,24 +12,24 @@ namespace Esoft_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class РиэлторSet
+    public partial class ПредложенияSet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public РиэлторSet()
+        public ПредложенияSet()
         {
-            this.ПотребностиSet = new HashSet<ПотребностиSet>();
-            this.ПредложенияSet = new HashSet<ПредложенияSet>();
+            this.СделкиSet = new HashSet<СделкиSet>();
         }
     
-        public int id { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-        public Nullable<int> DealShare { get; set; }
+        public int Id { get; set; }
+        public int IdAgent { get; set; }
+        public int IdClient { get; set; }
+        public int IdRealEstate { get; set; }
+        public long Price { get; set; }
     
+        public virtual КлиентыSet КлиентыSet { get; set; }
+        public virtual Объекты_недвижимостиSet Объекты_недвижимостиSet { get; set; }
+        public virtual РиэлторSet РиэлторSet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ПотребностиSet> ПотребностиSet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ПредложенияSet> ПредложенияSet { get; set; }
+        public virtual ICollection<СделкиSet> СделкиSet { get; set; }
     }
 }
