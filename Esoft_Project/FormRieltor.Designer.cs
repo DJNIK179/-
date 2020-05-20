@@ -232,6 +232,7 @@
             this.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold);
             this.Name = "FormRieltor";
             this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRieltor";
             this.Load += new System.EventHandler(this.FormRieltor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

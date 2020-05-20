@@ -36,6 +36,7 @@
             this.buttonOpenClients = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.buttonOpenDemand = new System.Windows.Forms.Button();
+            this.labelHello = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@
             // Logo
             // 
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(1, 1);
+            this.Logo.Location = new System.Drawing.Point(2, 24);
             this.Logo.Margin = new System.Windows.Forms.Padding(15);
             this.Logo.Name = "Logo";
             this.Logo.Padding = new System.Windows.Forms.Padding(10);
@@ -147,12 +148,22 @@
             this.buttonOpenDemand.UseVisualStyleBackColor = false;
             this.buttonOpenDemand.Click += new System.EventHandler(this.button1_Click);
             // 
+            // labelHello
+            // 
+            this.labelHello.AutoSize = true;
+            this.labelHello.Location = new System.Drawing.Point(6, 9);
+            this.labelHello.Name = "labelHello";
+            this.labelHello.Size = new System.Drawing.Size(44, 13);
+            this.labelHello.TabIndex = 30;
+            this.labelHello.Text = "Привет";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(282, 603);
+            this.Controls.Add(this.labelHello);
             this.Controls.Add(this.buttonOpenDemand);
             this.Controls.Add(this.buttonOpenAgents);
             this.Controls.Add(this.buttonOpenDemands);
@@ -163,8 +174,10 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEsoft";
+            this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -176,5 +189,6 @@
         private System.Windows.Forms.Button buttonOpenClients;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button buttonOpenDemand;
+        private System.Windows.Forms.Label labelHello;
     }
 }

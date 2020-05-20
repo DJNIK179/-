@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище УПModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="КлиентыSet">
           <Key>
             <PropertyRef Name="id" />
@@ -165,6 +174,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище УПModelContainer">
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Объекты недвижимостиSet" EntityType="Self.Объекты недвижимостиSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ПотребностиSet" EntityType="Self.ПотребностиSet" Schema="dbo" store:Type="Tables" />
@@ -205,6 +215,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="УПModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="КлиентыSet">
           <Key>
             <PropertyRef Name="id" />
@@ -379,6 +398,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="УПEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="КлиентыSet" EntityType="Self.КлиентыSet" />
           <EntitySet Name="Объекты_недвижимостиSet" EntityType="Self.Объекты_недвижимостиSet" />
           <EntitySet Name="ПотребностиSet" EntityType="Self.ПотребностиSet" />
@@ -420,6 +440,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище УПModelContainer" CdmEntityContainer="УПEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="УПModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="КлиентыSet">
             <EntityTypeMapping TypeName="УПModel.КлиентыSet">
               <MappingFragment StoreEntitySet="КлиентыSet">
